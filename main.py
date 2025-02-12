@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore", message="pandas only support SQLAlchemy")
 def extraer_datos_teradata(query, archivo_excel):
     try:
         # Conexión a Teradata
-        conn = teradatasql.connect('{"host":"teradata2.suranet.com","user":"johnhoas","password":"3113454135Jonda/"}')
+        conn = teradatasql.connect('{"host":"teraifx","user":"johnhoas","password":"3113454135Jonda/"}')
         print("Conexión a Teradata exitosa.")
         
         # Ejecutar la consulta SQL
