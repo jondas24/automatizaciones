@@ -19,7 +19,7 @@ jobs:
 
     - name: Ejecutar script Python
       run: |
-        python funciones.py  # Reemplaza 'tu_script.py' con el nombre de tu script
+        python main.py  # Reemplaza 'tu_script.py' con el nombre de tu script
 
     - name: Subir Excel generado
       uses: actions/upload-artifact@v2  # Cambié la versión a v2
