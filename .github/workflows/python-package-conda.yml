@@ -15,7 +15,7 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.13.2'  # Usa la versión de Python que prefieras
+        python-version: '3.9'  # Usa la versión de Python que prefieras
     - name: Instalar dependencias
       run: |
            python -m pip install --upgrade pip  # Primero actualizamos pip
