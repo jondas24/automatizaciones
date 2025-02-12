@@ -24,7 +24,7 @@ jobs:
       run:
         python main.py  # Reemplaza 'tu_script.py' con el nombre de tu script
     - name: Subir Excel generado
-      uses: actions/upload-artifact@v3  # Usando la versión v2 para subir artefactos
+      uses: actions/upload-artifact@v4
       with:
-        name: excel-file
+        name: my-data
         path: ./reporte_teradata.xlsx
