@@ -38,11 +38,11 @@ jobs:
 
     - name: Verificar resolución de teraifx
       run: |
-        nslookup teraifx  # Verifica si teraifx se resuelve correctamente
+        nslookup teradata2.suranet.com  # Verifica si teraifx se resuelve correctamente
 
     - name: Verificar conectividad con teraifx
       run: |
-        ping -c 4 teraifx  # Verifica la conectividad con teraifx a través de la VPN
+        ping -c 4 teradata2.suranet.com  # Verifica la conectividad con teraifx a través de la VPN
 
     - name: Ejecutar script Python
       run: |
