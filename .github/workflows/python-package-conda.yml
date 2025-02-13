@@ -3,7 +3,6 @@ name: Ejecutar Python para Teradata y Descargar Excel
 on:
   push:
     branches: [main]
-
 jobs:
   run_python_script:
     runs-on: ubuntu-latest
