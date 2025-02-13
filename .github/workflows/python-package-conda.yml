@@ -25,7 +25,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y openconnect
-        echo "${{ secrets.VPN_PASSWORD }}" | sudo openconnect ${{ "SURA-VPN" }} --user=${{ secrets.VPN_USER }} --passwd-on-stdin --no-cert-check &
+        echo "${{ secrets.VPN_PASSWORD }}" | sudo openconnect ${{ secrets.VPN_SERVER}} --user=${{ secrets.VPN_USER }} --passwd-on-stdin --no-cert-check &
       
     - name: Esperar a que la VPN se conecte
       run: |
