@@ -1,9 +1,9 @@
 name: Ejecutar Python para Teradata y Descargar Excel
- 
+
 on:
   push:
     branches: [main]
- 
+
 jobs:
   run_python_script:
     runs-on: ubuntu-latest
@@ -27,17 +27,30 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y openconnect
         echo "${{ secrets.VPN_PASSWORD }}" | sudo openconnect ${{ secrets.VPN_SERVER }} --user=${{ secrets.VPN_USER }} --passwd-on-stdin --no-cert-check &
- 
+      
     - name: Esperar a que la VPN se conecte
       run: |
         sleep 10  # Espera 10 segundos para asegurarte de que la VPN esté conectada
- 
+
+    - name: Configurar DNS para la VPN
+      run: |
+        echo "nameserver 10.99.47.1" | sudo tee /etc/resolv.conf  # Reemplazar con el DNS correcto de tu VPN
+
+    - name: Verificar resolución de teraifx
+      run: |
+        nslookup teraifx  # Verifica si teraifx se resuelve correctamente
+
+    - name: Verificar conectividad con teraifx
+      run: |
+        ping -c 4 teraifx  # Verifica la conectividad con teraifx a través de la VPN
+
     - name: Ejecutar script Python
       run: |
-          python main.py
+        python main.py
  
     - name: Subir Excel generado
       uses: actions/upload-artifact@v4
       with:
         name: my-data
         path: ./reporte_teradata.xlsx
+
